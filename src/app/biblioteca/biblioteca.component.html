@@ -1,0 +1,9 @@
+<h1>Minha Biblioteca</h1>
+<p>Likes em Livros: {{contadorLikesLivro}}</p>
+
+<h2>1. Alteração do título e do autor</h2>
+<app-livro (incrementouLikes)="incrementarLikesLivros($event)" titulo="Meu Livro" autor="Fulaninho"></app-livro>
+<h2>2. Alteração do autor</h2>
+<app-livro (incrementouLikes)="incrementarLikesLivros($event)" autor="Jesse"></app-livro>
+<h2>3. Alteração do título</h2>
+<app-livro (incrementouLikes)="incrementarLikesLivros($event)" titulo="O Livro"></app-livro>
