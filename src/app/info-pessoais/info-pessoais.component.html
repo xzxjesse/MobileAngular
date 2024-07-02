@@ -1,0 +1,48 @@
+<mat-toolbar>
+    <span>Cadastro de Informações Pessoais</span>
+</mat-toolbar>
+
+<form [formGroup]="formulario" (ngSubmit)="enviarInfos(formulario.value)">
+    <mat-form-field>
+        <input type="text" placeholder="Digite o seu nome" formControlName="nome" matInput/>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="number" placeholder="Digite o seu telefone" formControlName="telefone" matInput/>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="email" placeholder="Digite o seu email" formControlName="email" matInput/>
+    </mat-form-field>
+
+    <mat-form-field>
+        <input type="date" placeholder="Digite a data do seu nascimeno" formControlName="nascimento" matInput/>
+    </mat-form-field>
+
+    <button type="submit" mat-raised-button>Cadastrar Dados</button>
+</form>
+
+<table [dataSource]="conteudo" myTable mat-table>
+    <tr mat-header-row *matHeaderRowDef="colunas"></tr>
+    <tr mat-row *matRowDef="let row; columns:colunas"></tr>
+
+    <ng-container matColumnDef="nome">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <th mat-cell *matCellDef="let infos">{{infos.nome}}</th>
+    </ng-container>
+
+    <ng-container matColumnDef="telefone">
+        <th mat-header-cell *matHeaderCellDef>Telefone</th>
+        <th mat-cell *matCellDef="let infos">{{infos.telefone}}</th>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef>E-mail</th>
+        <th mat-cell *matCellDef="let infos">{{infos.email}}</th>
+    </ng-container>
+
+    <ng-container matColumnDef="nascimento">
+        <th mat-header-cell *matHeaderCellDef>Data de Nascimento</th>
+        <th mat-cell *matCellDef="let infos">{{infos.nascimento}}</th>
+    </ng-container>
+</table>
